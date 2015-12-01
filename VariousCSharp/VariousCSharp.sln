@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TableValuedParameter", "TableValuedParameter\TableValuedParameter.csproj", "{141821F9-A111-4B1B-8164-B63DBA4427FE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Advent.Data", "DataConn\Advent.Data.csproj", "{6F44D80C-329E-4CB0-ACA5-E15702825370}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{141821F9-A111-4B1B-8164-B63DBA4427FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{141821F9-A111-4B1B-8164-B63DBA4427FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{141821F9-A111-4B1B-8164-B63DBA4427FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F44D80C-329E-4CB0-ACA5-E15702825370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F44D80C-329E-4CB0-ACA5-E15702825370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F44D80C-329E-4CB0-ACA5-E15702825370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F44D80C-329E-4CB0-ACA5-E15702825370}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

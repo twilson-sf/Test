@@ -1,6 +1,0 @@
-d:\dev\Nerds\Test\VariousCSharp\TableValuedParameter\bin\Debug\TableValuedParameter.exe.config
-d:\dev\Nerds\Test\VariousCSharp\TableValuedParameter\bin\Debug\TableValuedParameter.exe
-d:\dev\Nerds\Test\VariousCSharp\TableValuedParameter\bin\Debug\TableValuedParameter.pdb
-d:\dev\Nerds\Test\VariousCSharp\TableValuedParameter\obj\Debug\TableValuedParameter.csprojResolveAssemblyReference.cache
-d:\dev\Nerds\Test\VariousCSharp\TableValuedParameter\obj\Debug\TableValuedParameter.exe
-d:\dev\Nerds\Test\VariousCSharp\TableValuedParameter\obj\Debug\TableValuedParameter.pdb
