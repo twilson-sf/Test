@@ -52,6 +52,10 @@ namespace SpreadDB
 			_cells = new Cell[_numRows, _numCols];
 		}
 
+		
+		/// <summary>
+		/// Currently a fake loader
+		/// </summary>
 		public void Load()
 		{
 			for (int row = 0; row < _numRows; row++)
@@ -87,7 +91,6 @@ namespace SpreadDB
 			}
 			return cell.Val;
 		}
-
 	}
 
 	class SpreadDB
@@ -109,11 +112,23 @@ namespace SpreadDB
 
 	class Program
 	{
+		static void Test()
+		{
+			RpnExpression e = new RpnExpression();
+			e.Add(new RpnNodeConst(3.0));
+			e.Add(new RpnNodeConst(4.0));
+			e.Add(new RpnNodeAdd());
+
+			double x = e.Evaluate(0, 0);
+		}
+
 		static void Main(string[] args)
 		{
 			SpreadDB db = new SpreadDB();
 			Sheet sh = db.Sheet(0);
 			sh.Load();
+
+			Test();
 
 			for (int row = 0; row < 10; row++)
 			{
