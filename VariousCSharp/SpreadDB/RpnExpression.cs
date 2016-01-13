@@ -6,7 +6,7 @@ using System.Text;
 
 namespace SpreadDB
 {
-	class RpnExpression
+	public class RpnExpression
 	{
 		List<RpnNode> _expression = new List<RpnNode>();
 
@@ -21,7 +21,7 @@ namespace SpreadDB
 		/// <param name="row"></param>
 		/// <param name="col"></param>
 		/// <returns></returns>
-		public double Evaluate(int row, int col)
+		public double Evaluate(Sheet sheet, int row, int col)
 		{
 			List<RpnNode> stack = new List<RpnNode>();
 			foreach (RpnNode n in _expression)
@@ -30,7 +30,7 @@ namespace SpreadDB
 					stack.Add(n);
 				else
 				{
-					n.Evaluate(stack);
+					stack.Add(n.Evaluate(stack));
 				}
 			}
 			Debug.Assert(stack.Count == 1);
