@@ -18,11 +18,6 @@ namespace SpreadDB
 			_value = val;
 		}
 
-		public override RpnNode Evaluate(List<RpnNode> stack)
-		{
-			throw new NotImplementedException();
-		}
-
 		public override double Value()
 		{
 			return _value;

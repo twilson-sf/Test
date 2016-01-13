@@ -12,16 +12,12 @@ namespace SpreadDB
 			return false;
 		}
 
-		public override RpnNode Evaluate(List<RpnNode> stack)
+		public override RpnNode Evaluate(RpnStack stack)
 		{
-			double x = stack[stack.Count - 1].Value() + stack[stack.Count - 2].Value();
-			stack.RemoveRange(stack.Count - 2, 2);
+			int stackCount = stack.Count;
+			double x = stack[stackCount - 1].Value() + stack[stackCount - 2].Value();
+			stack.RemoveRange(stackCount - 2, 2);
 			return new RpnNodeConst(x);
-		}
-
-		public override double Value()
-		{
-			throw new NotImplementedException();
 		}
 	}
 }

@@ -20,47 +20,8 @@ namespace SpreadDB
 		{
 			get { return _isValid; }
 		}
+
+		public abstract bool IsExpression { get; }
 	}
 
-	class ConstantCell : Cell
-	{
-		public override double Value
-		{
-			get
-			{
-				return _value;
-			}
-
-			set
-			{
-				_value = value;
-				_isValid = true;
-			}
-		}
-	}
-
-	public class FormulaCell: Cell
-	{
-		public RpnExpression Formula = null;
-
-		public override double Value
-		{
-			get
-			{
-				throw new NotImplementedException();
-			}
-			set
-			{
-				_value = value;
-				_isValid = true;
-			}
-		}
-
-		public double Evaluate(Sheet sheet, int row, int col)
-		{
-			if (!_isValid)
-				this.Value = this.Formula.Evaluate(sheet, row, col);
-			return _value;
-		}
-	}
 }

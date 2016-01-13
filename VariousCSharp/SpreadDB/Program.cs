@@ -15,7 +15,7 @@ namespace SpreadDB
 			e.Add(new RpnNodeConst(4.0));
 			e.Add(new RpnNodeAdd());
 
-			double x = e.Evaluate(null, 0, 0);
+//			double x = e.Evaluate(null, 0, 0);
 		}
 
 		static void Main(string[] args)

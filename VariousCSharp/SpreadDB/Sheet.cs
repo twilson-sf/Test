@@ -7,7 +7,7 @@ namespace SpreadDB
 {
 	public class Sheet
 	{
-		Cell[,] _cells;
+		public Cell[,] Cells;
 		int _numRows;
 		int _numCols;
 		List<RpnExpression> _expressions = new List<RpnExpression>();
@@ -16,16 +16,18 @@ namespace SpreadDB
 		{
 			_numRows = 20;
 			_numCols = 5;
-			_cells = new Cell[_numRows, _numCols];
+			Cells = new Cell[_numRows, _numCols];
 		}
 
 		public void Display()
 		{
+			Processor processor = new Processor(this);
 			for (int row = 0; row < _numRows; row++)
 			{
 				for (int col = 0; col < _numCols; col++)
 				{
-					Console.Write(this.Value(row, col));
+					double x = processor.Value(row, col);
+					Console.Write(x);
 					Console.Write(" ");
 				}
 				Console.WriteLine();
@@ -57,14 +59,25 @@ namespace SpreadDB
 					// current sheet is 5 columns, 0 to 4.
 					switch (col)
 					{
-						case 4:
+						case 3:
+						{
 							FormulaCell cell = new FormulaCell();
 							cell.Formula = expr1;
-							_cells[row, col] = cell;
+							Cells[row, col] = cell;
 							break;
+						}
+
+						case 4:
+						{
+							FormulaCell cell = new FormulaCell();
+							cell.Formula = expr2;
+							Cells[row, col] = cell;
+							break;
+						}
+
 						default:
-							_cells[row, col] = new ConstantCell();
-							_cells[row, col].Value = row + col;
+							Cells[row, col] = new ConstantCell();
+							Cells[row, col].Value = row + col;
 							break;
 					}
 				}
@@ -73,8 +86,9 @@ namespace SpreadDB
 
 		public double Value(int row, int col)
 		{
+			Debug.Assert(false);	// I think this is obsolete
 			double ret;
-			Cell cell = _cells[row, col];
+			Cell cell = Cells[row, col];
 			if (cell.GetType() == typeof(ConstantCell))
 				ret = cell.Value;
 			else

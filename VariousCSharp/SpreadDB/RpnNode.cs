@@ -8,7 +8,16 @@ namespace SpreadDB
 	public abstract class RpnNode
 	{
 		public abstract bool IsValueType();
-		public abstract double Value();
-		public abstract RpnNode Evaluate(List<RpnNode> stack);
+
+		public virtual RpnNode Evaluate(RpnStack stack)
+		{
+			throw new NotImplementedException();
+		}
+
+		public virtual double Value()
+		{
+			throw new NotImplementedException();
+		}
+
 	}
 }

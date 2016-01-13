@@ -5,12 +5,12 @@ using System.Text;
 
 namespace SpreadDB
 {
-	class RpnNodeCellRef : RpnNode
+	public class RpnNodeCellRef : RpnNode
 	{
-		readonly int _row;
-		readonly bool _rowIsAbsolute;
-		readonly int _col;
-		readonly bool _colIsAbsolute;
+		public readonly int _row;
+		public readonly bool _rowIsAbsolute;
+		public readonly int _col;
+		public readonly bool _colIsAbsolute;
 
 		public RpnNodeCellRef(int row, bool rowIsAbsolute, int col, bool colIsAbsolute)
 		{
@@ -22,17 +22,12 @@ namespace SpreadDB
 
 		public override bool IsValueType()
 		{
-			return true;
+			return false;
 		}
 
-		public override RpnNode Evaluate(List<RpnNode> stack)
+		public override RpnNode Evaluate(RpnStack stack)
 		{
 			throw new NotImplementedException();
-		}
-
-		public override double Value()
-		{
-			throw new NotImplementedException("RpnNodeCellRef.Value");
 		}
 	}
 }
