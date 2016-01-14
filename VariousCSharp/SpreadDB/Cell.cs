@@ -10,6 +10,7 @@ namespace SpreadDB
 	{
 		protected double _value;
 		protected bool _isValid = false;
+
 		public abstract double Value
 		{
 			get;

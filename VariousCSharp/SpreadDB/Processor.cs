@@ -46,7 +46,9 @@ namespace SpreadDB
 			}
 			Debug.Assert(stack.Count == 1);
 			Debug.Assert(stack[0].IsValueType());
-			return stack[0].Value();
+			double ret = stack[0].Value();
+			_sheet.Cells[row, col].Value = ret;
+			return ret;
 		}
 
 		public double Value(int row, int col)

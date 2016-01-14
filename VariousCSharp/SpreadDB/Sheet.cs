@@ -19,14 +19,16 @@ namespace SpreadDB
 			Cells = new Cell[_numRows, _numCols];
 		}
 
+		/// <summary>
+		/// Write the whole sheet to Console
+		/// </summary>
 		public void Display()
 		{
-			Processor processor = new Processor(this);
 			for (int row = 0; row < _numRows; row++)
 			{
 				for (int col = 0; col < _numCols; col++)
 				{
-					double x = processor.Value(row, col);
+					double x = Value(row, col);
 					Console.Write(x);
 					Console.Write(" ");
 				}
@@ -84,15 +86,25 @@ namespace SpreadDB
 			}
 		}
 
+		/// <summary>
+		/// Possibly compute and return the value at [row, col];
+		/// </summary>
+		/// <param name="row"></param>
+		/// <param name="col"></param>
+		/// <returns></returns>
 		public double Value(int row, int col)
 		{
-			Debug.Assert(false);	// I think this is obsolete
 			double ret;
 			Cell cell = Cells[row, col];
-			if (cell.GetType() == typeof(ConstantCell))
-				ret = cell.Value;
+			if (cell.IsExpression && !cell.IsValid)	// does it need computing?
+			{
+				Processor processor = new Processor(this);
+				ret = processor.Evaluate(((FormulaCell)cell).Formula, row, col);
+			}
 			else
-				ret = ((FormulaCell)cell).Evaluate(this, row, col);
+			{
+				ret = cell.Value;
+			}
 			return ret;
 		}
 

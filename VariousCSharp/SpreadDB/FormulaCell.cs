@@ -18,21 +18,14 @@ namespace SpreadDB
 		{
 			get
 			{
-				throw new NotImplementedException();
+				Debug.Assert(_isValid);
+				return _value;
 			}
 			set
 			{
 				_value = value;
 				_isValid = true;
 			}
-		}
-
-		public double Evaluate(Sheet sheet, int row, int col)
-		{
-			Debug.Assert(false);
-//			if (!_isValid)
-//				this.Value = this.Formula.Evaluate(sheet, row, col);
-			return _value;
 		}
 	}
 }

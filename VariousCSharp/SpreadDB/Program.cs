@@ -26,7 +26,7 @@ namespace SpreadDB
 			Sheet sh = db.Sheet(0);
 			sh.Load();
 			sh.Display();
-
+			sh.Display();
 		}
 	}
 }
