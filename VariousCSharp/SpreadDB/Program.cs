@@ -23,10 +23,14 @@ namespace SpreadDB
 			Test();
 
 			SpreadDB db = new SpreadDB();
+
 			Sheet sh = db.Sheet(0);
 			sh.Load();
 			sh.Display();
-			sh.Display();
+
+			Sheet sh1 = db.Sheet(1);
+			sh1.Load();
+			sh1.Display();
 		}
 	}
 }
