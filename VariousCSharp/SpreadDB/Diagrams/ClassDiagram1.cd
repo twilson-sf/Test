@@ -3,7 +3,7 @@
   <Class Name="SpreadDB.Cell">
     <Position X="3.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ABAAAAAAAABAAAAAAAgAAAAAAAAAAAAAAEAgAAAAAAA=</HashCode>
+      <HashCode>ABAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Cell.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -17,7 +17,7 @@
   <Class Name="SpreadDB.FormulaCell">
     <Position X="2.25" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAABAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAABAAAAAAABAAAAAAAAABAAAAAAhAAAAAAA=</HashCode>
       <FileName>FormulaCell.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -25,14 +25,14 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="SpreadDB.RpnStack">
-    <Position X="11.25" Y="0.5" Width="1.5" />
+    <Position X="11.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Processor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SpreadDB.Processor">
-    <Position X="9.5" Y="0.5" Width="1.5" />
+    <Position X="9.5" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAABAAgAAAAAAA=</HashCode>
       <FileName>Processor.cs</FileName>
@@ -79,12 +79,15 @@
       <FileName>RpnNodeConst.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SpreadDB.Sheet" Collapsed="true">
-    <Position X="7.25" Y="0.5" Width="1.5" />
+  <Class Name="SpreadDB.Sheet">
+    <Position X="7.25" Y="5.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAAEIAAQAAAAAAAAAAAAAggAAAAEA=</HashCode>
       <FileName>Sheet.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="Cells" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Tahoma" Size="8.25" />
 </ClassDiagram>

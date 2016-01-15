@@ -96,7 +96,7 @@ namespace SpreadDB
 		{
 			double ret;
 			Cell cell = Cells[row, col];
-			if (cell.IsExpression && !cell.IsValid)	// does it need computing?
+			if (cell.IsExpression &&((FormulaCell)cell).IsDirty)	// does it need computing?
 			{
 				Processor processor = new Processor(this);
 				ret = processor.Evaluate(((FormulaCell)cell).Formula, row, col);

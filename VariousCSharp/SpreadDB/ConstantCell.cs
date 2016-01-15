@@ -14,16 +14,8 @@ namespace SpreadDB
 
 		public override double Value
 		{
-			get
-			{
-				return _value;
-			}
-
-			set
-			{
-				_value = value;
-				_isValid = true;
-			}
+			get { return _value; }
+			set { _value = value; }
 		}
 	}
 }
