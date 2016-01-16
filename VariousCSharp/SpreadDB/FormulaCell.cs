@@ -19,6 +19,12 @@ namespace SpreadDB
 		{
 			get { return _isDirty;}
 		}
+
+		public void SetDirty()
+		{
+			_isDirty = true;
+			SetDependenciesDirty();
+		}
 	
 		public override double Value
 		{

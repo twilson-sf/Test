@@ -15,7 +15,11 @@ namespace SpreadDB
 		public override double Value
 		{
 			get { return _value; }
-			set { _value = value; }
+			set
+			{
+				_value = value;
+				SetDependenciesDirty();
+			}
 		}
 	}
 }

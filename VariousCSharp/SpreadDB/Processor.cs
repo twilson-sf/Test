@@ -26,6 +26,10 @@ namespace SpreadDB
 		/// <returns></returns>
 		public double Evaluate(RpnExpression expr, int row, int col)
 		{
+			FormulaCell thisCell = (FormulaCell)_sheet.Cells[row, col];
+			if (!thisCell.IsDirty)
+				return thisCell.Value;
+
 			RpnStack stack = new RpnStack();
 			foreach (RpnNode n in expr.Nodes)
 			{
@@ -36,7 +40,8 @@ namespace SpreadDB
 					RpnNodeCellRef n1 = (RpnNodeCellRef)n;
 					int row1 = row + n1._row;
 					int col1 = col + n1._col;
-					double x = this.Value(row1, col1);
+					_sheet.Cells[row1, col1].AddDependency(thisCell);		// TODO - only needs to be done on first evaluate
+					double x = this.Value(row1, col1);	// here's the magic recursive call to evaluate upstream
 					stack.Add(new RpnNodeConst(x));
 				}
 				else
@@ -47,7 +52,7 @@ namespace SpreadDB
 			Debug.Assert(stack.Count == 1);
 			Debug.Assert(stack[0].IsValueType());
 			double ret = stack[0].Value();
-			_sheet.Cells[row, col].Value = ret;
+			thisCell.Value = ret;
 			return ret;
 		}
 

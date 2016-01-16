@@ -31,6 +31,10 @@ namespace SpreadDB
 			Sheet sh1 = db.Sheet(1);
 			sh1.Load();
 			sh1.Display();
+
+			sh1.Cells[1, 1].Value = 13.0;
+			sh1.Display();
+
 		}
 	}
 }

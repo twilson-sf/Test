@@ -29,8 +29,7 @@ namespace SpreadDB
 				for (int col = 0; col < _numCols; col++)
 				{
 					double x = Value(row, col);
-					Console.Write(x);
-					Console.Write(" ");
+					Console.Write("[{0},{1}]={2} ", row, col, x);
 				}
 				Console.WriteLine();
 			}
@@ -41,12 +40,16 @@ namespace SpreadDB
 		/// </summary>
 		public void Load()
 		{
+			// 3 + RC[-2] + RC[-1]
 			RpnExpression expr1 = new RpnExpression();
 			expr1.Add(new RpnNodeConst(3.0));
-			expr1.Add(new RpnNodeConst(4.0));
+			expr1.Add(new RpnNodeCellRef(0, false, -2, false));
+			expr1.Add(new RpnNodeCellRef(0, false, -1, false));
+			expr1.Add(new RpnNodeAdd());
 			expr1.Add(new RpnNodeAdd());
 			_expressions.Add(expr1);
 
+			// RC[-2] + RC[-1]
 			RpnExpression expr2 = new RpnExpression();
 			expr2.Add(new RpnNodeCellRef(0, false, -2, false));
 			expr2.Add(new RpnNodeCellRef(0, false, -1, false));
@@ -98,6 +101,7 @@ namespace SpreadDB
 			Cell cell = Cells[row, col];
 			if (cell.IsExpression &&((FormulaCell)cell).IsDirty)	// does it need computing?
 			{
+				Console.Write(" called Sheet.Value[{0},{1}]", row, col);
 				Processor processor = new Processor(this);
 				ret = processor.Evaluate(((FormulaCell)cell).Formula, row, col);
 			}
